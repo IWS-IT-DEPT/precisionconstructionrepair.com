@@ -12,7 +12,7 @@ export default function CareersCta() {
           </p>
         </div>
         <a
-          href="mailto:info@precisionconstructionrepair.com?subject=Careers%20Inquiry"
+          href="mailto:careers@precisionconstructionrepair.com?subject=Careers%20Inquiry"
           className="whitespace-nowrap rounded-sm bg-night px-6 py-3 text-sm font-semibold uppercase tracking-wide text-white transition-colors hover:bg-white hover:text-night"
         >
           Inquire About Openings

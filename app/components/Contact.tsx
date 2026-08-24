@@ -1,3 +1,4 @@
+import Link from "next/link";
 import ContactForm from "./ContactForm";
 
 const HOURS = [
@@ -22,8 +23,12 @@ export default function Contact() {
             Drop us a line
           </h2>
           <p className="mt-4 leading-relaxed text-ink-soft">
-            Tell us about your facility or project and we&apos;ll follow up to schedule a
-            consultation.
+            Questions about our services or want to talk to our team? Send us a
+            message. Ready to price out a job?{" "}
+            <Link href="/quote" className="font-medium text-brand-dark hover:underline">
+              Get a Quote
+            </Link>{" "}
+            instead.
           </p>
         </div>
 
@@ -38,14 +43,14 @@ export default function Contact() {
               <p className="mt-2 text-ink-soft">7111 U.S. 45</p>
               <p className="text-ink-soft">Eight Mile, AL, USA</p>
               <div className="mt-4 space-y-1">
-                <a href="tel:12515550142" className="block font-medium text-brand-dark hover:underline">
-                  (251) 555-0142
+                <a href="tel:12514632089" className="block font-medium text-brand-dark hover:underline">
+                  (251) 463-2089
                 </a>
                 <a
-                  href="mailto:info@precisionconstructionrepair.com"
+                  href="mailto:sales@precisionconstructionrepair.com"
                   className="block font-medium text-brand-dark hover:underline"
                 >
-                  info@precisionconstructionrepair.com
+                  sales@precisionconstructionrepair.com
                 </a>
               </div>
             </div>

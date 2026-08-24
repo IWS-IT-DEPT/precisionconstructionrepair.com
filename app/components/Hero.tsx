@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import heroImage from "@/public/images/hero-welding.jpg";
 
 export default function Hero() {
@@ -25,7 +26,7 @@ export default function Hero() {
       <div className="relative mx-auto flex max-w-6xl flex-col gap-10 px-6 py-24 lg:flex-row lg:items-center lg:gap-16 lg:px-8 lg:py-32">
         <div className="max-w-2xl">
           <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-brand/40 bg-brand/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-brand">
-            Eight Mile, AL &middot; Serving Steel &amp; Chemical Manufacturing
+            Eight Mile &amp; Mobile, AL &middot; Serving Steel &amp; Chemical Manufacturing
           </p>
           <h1 className="font-display text-4xl font-bold uppercase leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
             Industrial Maintenance, Machining &amp; Welding
@@ -36,12 +37,12 @@ export default function Hero() {
             welding, fabrication, and industrial maintenance done right.
           </p>
           <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-            <a
-              href="#contact"
+            <Link
+              href="/quote"
               className="rounded-sm bg-brand px-7 py-3.5 text-center text-sm font-semibold uppercase tracking-wide text-night transition-colors hover:bg-white"
             >
-              Schedule a Consultation
-            </a>
+              Get a Quote
+            </Link>
             <a
               href="#services"
               className="rounded-sm border border-white/25 px-7 py-3.5 text-center text-sm font-semibold uppercase tracking-wide text-white transition-colors hover:border-white/60"

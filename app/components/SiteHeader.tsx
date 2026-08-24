@@ -6,11 +6,11 @@ import Image from "next/image";
 import logo from "@/public/images/pcr-logo.png";
 
 const NAV_LINKS = [
-  { href: "#services", label: "Services" },
-  { href: "#safety", label: "Safety" },
-  { href: "#about", label: "About" },
-  { href: "#service-area", label: "Service Area" },
-  { href: "#contact", label: "Contact" },
+  { href: "/#services", label: "Services" },
+  { href: "/#safety", label: "Safety" },
+  { href: "/#about", label: "About" },
+  { href: "/#service-area", label: "Service Area" },
+  { href: "/#contact", label: "Contact" },
 ];
 
 export default function SiteHeader() {
@@ -19,7 +19,7 @@ export default function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 border-b border-line/80 bg-paper/95 backdrop-blur supports-[backdrop-filter]:bg-paper/80">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 lg:px-8">
-        <Link href="#top" className="flex items-center gap-3" onClick={() => setOpen(false)}>
+        <Link href="/#top" className="flex items-center gap-3" onClick={() => setOpen(false)}>
           <span className="flex items-center rounded-md bg-night p-1.5">
             <Image
               src={logo}
@@ -49,17 +49,17 @@ export default function SiteHeader() {
 
         <div className="hidden items-center gap-4 lg:flex">
           <a
-            href="tel:12515550142"
+            href="tel:12514632089"
             className="text-sm font-semibold text-ink-soft transition-colors hover:text-brand-dark"
           >
-            (251) 555-0142
+            (251) 463-2089
           </a>
-          <a
-            href="#contact"
+          <Link
+            href="/quote"
             className="rounded-sm bg-night px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-brand-deep"
           >
-            Schedule a Consultation
-          </a>
+            Get a Quote
+          </Link>
         </div>
 
         <button
@@ -92,16 +92,16 @@ export default function SiteHeader() {
                 {link.label}
               </a>
             ))}
-            <a href="tel:12515550142" className="text-base font-semibold text-ink">
-              (251) 555-0142
+            <a href="tel:12514632089" className="text-base font-semibold text-ink">
+              (251) 463-2089
             </a>
-            <a
-              href="#contact"
+            <Link
+              href="/quote"
               className="mt-2 rounded-sm bg-night px-5 py-3 text-center text-sm font-semibold text-white"
               onClick={() => setOpen(false)}
             >
-              Schedule a Consultation
-            </a>
+              Get a Quote
+            </Link>
           </nav>
         </div>
       )}

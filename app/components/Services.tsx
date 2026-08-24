@@ -79,7 +79,7 @@ const SERVICES = [
   {
     icon: IconFlame,
     title: "Welding & Fabrication",
-    body: "Structural, pipe, and equipment welding along with custom metal fabrication built to withstand demanding industrial environments.",
+    body: "Structural, process piping, and equipment welding along with custom metal fabrication built to withstand demanding industrial environments.",
   },
   {
     icon: IconWrench,

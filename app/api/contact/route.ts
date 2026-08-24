@@ -1,7 +1,8 @@
 import { NextResponse } from "next/server";
+import { EMAIL_RE, SEND_DOMAIN, fieldsToHtml, resend } from "@/app/lib/email";
 
-// TODO: wire this up to a real email/CRM provider (e.g. Resend) so submissions
-// actually reach the business. Right now this just validates and echoes back.
+const TO_ADDRESS = "sales@precisionconstructionrepair.com";
+
 export async function POST(request: Request) {
   const body = await request.json().catch(() => null);
 
@@ -12,9 +13,32 @@ export async function POST(request: Request) {
     typeof body.message !== "string" ||
     !body.name.trim() ||
     !body.email.trim() ||
-    !body.message.trim()
+    !body.message.trim() ||
+    !EMAIL_RE.test(body.email.trim())
   ) {
-    return NextResponse.json({ ok: false, error: "Missing required fields." }, { status: 400 });
+    return NextResponse.json({ ok: false, error: "Missing or invalid fields." }, { status: 400 });
+  }
+
+  const name = body.name.trim();
+  const email = body.email.trim();
+  const phone = typeof body.phone === "string" ? body.phone.trim() : "";
+  const message = body.message.trim();
+
+  const { error } = await resend.emails.send({
+    from: `Precision Construction Repair Website <contact@${SEND_DOMAIN}>`,
+    to: [TO_ADDRESS],
+    replyTo: email,
+    subject: `New website inquiry from ${name}`,
+    html: fieldsToHtml([
+      ["Name", name],
+      ["Email", email],
+      ["Phone", phone],
+      ["Message", message],
+    ]),
+  });
+
+  if (error) {
+    return NextResponse.json({ ok: false, error: "Failed to send message." }, { status: 502 });
   }
 
   return NextResponse.json({ ok: true });

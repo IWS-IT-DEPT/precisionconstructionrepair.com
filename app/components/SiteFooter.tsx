@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import logo from "@/public/images/pcr-logo.png";
 
 export default function SiteFooter() {
@@ -12,15 +13,18 @@ export default function SiteFooter() {
           <p>&copy; {year} Precision Construction Repair &mdash; All Rights Reserved.</p>
         </div>
         <div className="flex gap-6">
-          <a href="#top" className="transition-colors hover:text-white">
+          <Link href="/#top" className="transition-colors hover:text-white">
             Back to top
-          </a>
-          <a href="#services" className="transition-colors hover:text-white">
+          </Link>
+          <Link href="/#services" className="transition-colors hover:text-white">
             Services
-          </a>
-          <a href="#contact" className="transition-colors hover:text-white">
+          </Link>
+          <Link href="/quote" className="transition-colors hover:text-white">
+            Get a Quote
+          </Link>
+          <Link href="/#contact" className="transition-colors hover:text-white">
             Contact
-          </a>
+          </Link>
         </div>
       </div>
     </footer>
