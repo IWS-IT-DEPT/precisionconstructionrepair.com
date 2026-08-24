@@ -117,9 +117,14 @@ export default function Services() {
         </div>
 
         <div className="mt-12 grid gap-px overflow-hidden rounded-sm border border-line bg-line sm:grid-cols-2 lg:grid-cols-3">
-          {SERVICES.map((service) => (
+          {SERVICES.map((service, i) => (
             <div key={service.title} className="group bg-paper p-8 transition-colors hover:bg-paper-alt">
-              <service.icon className="h-9 w-9 text-brand-dark" />
+              <div className="flex items-start justify-between">
+                <service.icon className="h-9 w-9 text-brand-dark" />
+                <span className="font-display text-2xl font-bold text-line">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+              </div>
               <h3 className="mt-5 font-display text-lg font-bold text-ink">{service.title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-ink-soft">{service.body}</p>
             </div>

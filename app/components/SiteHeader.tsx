@@ -7,6 +7,7 @@ import logo from "@/public/images/pcr-logo.png";
 
 const NAV_LINKS = [
   { href: "#services", label: "Services" },
+  { href: "#safety", label: "Safety" },
   { href: "#about", label: "About" },
   { href: "#service-area", label: "Service Area" },
   { href: "#contact", label: "Contact" },
