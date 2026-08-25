@@ -27,10 +27,12 @@ const SAFETY_POINTS = [
   "PPE and lockout/tagout protocols followed on every job",
   "Pre-task hazard assessments before work begins",
   "Crews trained to OSHA general industry safety standards",
+  "OSHA confined space entry training and protocols on every applicable job",
 ];
 
 const QUALITY_POINTS = [
   "Direct-hire, skilled tradespeople — not subcontracted labor",
+  "National Board \"R\" Stamp certified for metallic repairs and alterations to boilers and pressure vessels",
   "Clear scopes, schedules, and documentation on every job",
   "Work verified and inspected before we call it done",
   "Responsive communication from first call to final walkthrough",
