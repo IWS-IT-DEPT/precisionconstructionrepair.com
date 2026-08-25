@@ -43,8 +43,8 @@ export default function Contact() {
               <p className="mt-2 text-ink-soft">7111 U.S. 45</p>
               <p className="text-ink-soft">Eight Mile, AL, USA</p>
               <div className="mt-4 space-y-1">
-                <a href="tel:12514632089" className="block font-medium text-brand-dark hover:underline">
-                  (251) 463-2089
+                <a href="tel:12513957447" className="block font-medium text-brand-dark hover:underline">
+                  (251) 395-7447
                 </a>
                 <a
                   href="mailto:sales@precisionconstructionrepair.com"

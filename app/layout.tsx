@@ -68,7 +68,7 @@ const LOCAL_BUSINESS_JSON_LD = {
   "@type": "GeneralContractor",
   name: "Precision Construction Repair",
   url: SITE_URL,
-  telephone: "+12514632089",
+  telephone: "+12513957447",
   email: "sales@precisionconstructionrepair.com",
   address: {
     "@type": "PostalAddress",

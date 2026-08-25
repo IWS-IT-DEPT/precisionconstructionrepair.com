@@ -50,10 +50,10 @@ export default function SiteHeader() {
 
         <div className="hidden items-center gap-4 lg:flex">
           <a
-            href="tel:12514632089"
+            href="tel:12513957447"
             className="text-sm font-semibold text-ink-soft transition-colors hover:text-brand-dark"
           >
-            (251) 463-2089
+            (251) 395-7447
           </a>
           <Link
             href="/quote"
@@ -93,8 +93,8 @@ export default function SiteHeader() {
                 {link.label}
               </Link>
             ))}
-            <a href="tel:12514632089" className="text-base font-semibold text-ink">
-              (251) 463-2089
+            <a href="tel:12513957447" className="text-base font-semibold text-ink">
+              (251) 395-7447
             </a>
             <Link
               href="/quote"
