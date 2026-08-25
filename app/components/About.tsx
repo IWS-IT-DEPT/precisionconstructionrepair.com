@@ -13,15 +13,16 @@ export default function About() {
             About Us
           </p>
           <h2 className="mt-3 font-display text-3xl font-bold uppercase tracking-tight text-ink sm:text-4xl">
-            Rooted in Mobile, built for the industrial corridor
+            Rooted in Mobile, built for the Gulf Coast
           </h2>
           <div className="mt-6 space-y-4 leading-relaxed text-ink-soft">
             <p>
               Precision Construction Repair is an industrial service company based in
               the Mobile, Alabama area, providing maintenance, machining, and welding
-              services to large manufacturing clients along the US-43 industrial
-              corridor between Mobile and Jackson &mdash; with deep experience serving
-              the steel and chemical manufacturing industries.
+              services to large manufacturing clients across the Gulf Coast &mdash;
+              with the bulk of our current work concentrated along the US-43
+              industrial corridor between Mobile and Jackson, AL. We bring deep
+              experience serving the steel and chemical manufacturing industries.
             </p>
             <p>
               We work directly with plant managers and maintenance teams to keep
