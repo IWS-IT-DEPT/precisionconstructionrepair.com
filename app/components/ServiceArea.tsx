@@ -1,12 +1,12 @@
 const AREAS = [
-  "Eight Mile, AL",
   "Mobile, AL",
-  "Prichard, AL",
   "Saraland, AL",
   "Chickasaw, AL",
-  "Bayou La Batre, AL",
-  "Pascagoula, MS",
-  "Theodore, AL",
+  "Creola, AL",
+  "Axis, AL",
+  "McIntosh, AL",
+  "Calvert, AL",
+  "Jackson, AL",
 ];
 
 export default function ServiceArea() {
@@ -19,11 +19,11 @@ export default function ServiceArea() {
               Service Area
             </p>
             <h2 className="mt-3 font-display text-3xl font-bold uppercase tracking-tight sm:text-4xl">
-              Proudly serving the Gulf Coast
+              The Mobile Area &amp; the US-43 Industrial Corridor
             </h2>
             <p className="mt-4 leading-relaxed text-white/70">
-              Headquartered in Eight Mile, AL, we travel throughout the greater Mobile
-              area to keep local industry running.
+              Most of our work is along the US-43 industrial corridor between Jackson
+              and Mobile, AL &mdash; but we serve the greater Mobile area and beyond.
             </p>
           </div>
         </div>

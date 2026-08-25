@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     template: "%s | Precision Construction Repair",
   },
   description:
-    "Industrial maintenance, machining, welding & fabrication for steel and chemical manufacturing plants across the Gulf Coast. Based in Eight Mile, AL, serving Mobile and beyond.",
+    "Industrial maintenance, machining, welding & fabrication for steel and chemical manufacturing plants along the US-43 industrial corridor between Mobile and Jackson, AL, and beyond.",
   keywords: [
     "industrial maintenance",
     "industrial machining",
@@ -35,14 +35,15 @@ export const metadata: Metadata = {
     "chemical plant maintenance",
     "shutdown and turnaround services",
     "Mobile Alabama industrial contractor",
-    "Eight Mile Alabama",
+    "US-43 industrial corridor",
+    "Jackson Alabama industrial contractor",
   ],
   alternates: { canonical: "/" },
   robots: { index: true, follow: true },
   openGraph: {
     title: "Precision Construction Repair",
     description:
-      "Industrial maintenance, machining & welding for steel and chemical manufacturing clients across the Gulf Coast.",
+      "Industrial maintenance, machining & welding for steel and chemical manufacturing clients along the US-43 corridor between Mobile and Jackson, AL.",
     url: SITE_URL,
     siteName: "Precision Construction Repair",
     locale: "en_US",
@@ -53,7 +54,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Precision Construction Repair",
     description:
-      "Industrial maintenance, machining & welding for steel and chemical manufacturing clients across the Gulf Coast.",
+      "Industrial maintenance, machining & welding for steel and chemical manufacturing clients along the US-43 corridor between Mobile and Jackson, AL.",
     images: ["/opengraph-image"],
   },
 };
@@ -73,14 +74,14 @@ const LOCAL_BUSINESS_JSON_LD = {
     addressCountry: "US",
   },
   areaServed: [
-    "Eight Mile, AL",
     "Mobile, AL",
-    "Prichard, AL",
     "Saraland, AL",
     "Chickasaw, AL",
-    "Bayou La Batre, AL",
-    "Pascagoula, MS",
-    "Theodore, AL",
+    "Creola, AL",
+    "Axis, AL",
+    "McIntosh, AL",
+    "Calvert, AL",
+    "Jackson, AL",
   ],
   openingHoursSpecification: {
     "@type": "OpeningHoursSpecification",
@@ -89,7 +90,7 @@ const LOCAL_BUSINESS_JSON_LD = {
     closes: "15:30",
   },
   description:
-    "Industrial maintenance, machining, welding, and fabrication services for steel and chemical manufacturing plants across the Gulf Coast.",
+    "Industrial maintenance, machining, welding, and fabrication services for steel and chemical manufacturing plants along the US-43 industrial corridor between Mobile and Jackson, Alabama.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -101,7 +102,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="min-h-full flex flex-col bg-paper text-ink">
         <script
           type="application/ld+json"
-          // eslint-disable-next-line react/no-danger
           dangerouslySetInnerHTML={{ __html: JSON.stringify(LOCAL_BUSINESS_JSON_LD) }}
         />
         <SiteHeader />

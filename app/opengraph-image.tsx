@@ -65,7 +65,7 @@ export default function OpengraphImage() {
             color: "rgba(255,255,255,0.7)",
           }}
         >
-          Serving steel &amp; chemical manufacturing across the Gulf Coast
+          Serving the US-43 industrial corridor from Mobile to Jackson, AL
         </div>
       </div>
     ),
