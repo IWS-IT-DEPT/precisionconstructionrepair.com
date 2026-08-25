@@ -22,6 +22,9 @@ export default function SiteFooter() {
           <Link href="/quote" className="transition-colors hover:text-white">
             Get a Quote
           </Link>
+          <Link href="/careers" className="transition-colors hover:text-white">
+            Careers
+          </Link>
           <Link href="/#contact" className="transition-colors hover:text-white">
             Contact
           </Link>

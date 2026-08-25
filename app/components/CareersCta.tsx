@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function CareersCta() {
   return (
     <section className="bg-brand">
@@ -11,12 +13,12 @@ export default function CareersCta() {
             for our Gulf Coast crews.
           </p>
         </div>
-        <a
-          href="mailto:careers@precisionconstructionrepair.com?subject=Careers%20Inquiry"
+        <Link
+          href="/careers"
           className="whitespace-nowrap rounded-sm bg-night px-6 py-3 text-sm font-semibold uppercase tracking-wide text-white transition-colors hover:bg-white hover:text-night"
         >
-          Inquire About Openings
-        </a>
+          View Openings
+        </Link>
       </div>
     </section>
   );

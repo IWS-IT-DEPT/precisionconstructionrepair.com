@@ -10,6 +10,7 @@ const NAV_LINKS = [
   { href: "/#safety", label: "Safety" },
   { href: "/#about", label: "About" },
   { href: "/#service-area", label: "Service Area" },
+  { href: "/careers", label: "Careers" },
   { href: "/#contact", label: "Contact" },
 ];
 
@@ -37,13 +38,13 @@ export default function SiteHeader() {
 
         <nav className="hidden items-center gap-8 lg:flex">
           {NAV_LINKS.map((link) => (
-            <a
+            <Link
               key={link.href}
               href={link.href}
               className="text-sm font-medium text-ink-soft transition-colors hover:text-brand-dark"
             >
               {link.label}
-            </a>
+            </Link>
           ))}
         </nav>
 
@@ -83,14 +84,14 @@ export default function SiteHeader() {
         <div className="border-t border-line bg-paper px-6 py-4 lg:hidden">
           <nav className="flex flex-col gap-4">
             {NAV_LINKS.map((link) => (
-              <a
+              <Link
                 key={link.href}
                 href={link.href}
                 className="text-base font-medium text-ink-soft"
                 onClick={() => setOpen(false)}
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
             <a href="tel:12514632089" className="text-base font-semibold text-ink">
               (251) 463-2089
