@@ -41,3 +41,204 @@ body {
 h1, h2, h3, h4, .font-display {
   font-family: var(--font-display), Arial, Helvetica, sans-serif;
 }
+
+/* ------------------------------------------------------------------
+   Motion
+   Subtle, industrial: weld beads that cool, arc light that flickers,
+   heat lines on hover. Short distances, long ease-out curves.
+   All motion is opt-in via prefers-reduced-motion, and every effect
+   degrades to "content simply visible" when unsupported.
+------------------------------------------------------------------- */
+
+:root {
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-hover: 300ms;
+  --weld-hot: #fff1c9;
+  --weld-glow: #ffb35c;
+}
+
+:focus-visible {
+  outline: 2px solid var(--brand-dark);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--brand) 30%, transparent);
+}
+
+/* Section labels carry a short weld bead. Static by default. */
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.eyebrow::before {
+  content: "";
+  flex: none;
+  width: 1.75rem;
+  height: 3px;
+  border-radius: 2px;
+  background: currentColor;
+  transform-origin: left center;
+}
+
+/* Keyframes use `translate` / `scale` (not `transform`) where hover
+   effects also transform, so the two never fight. */
+@keyframes rise {
+  from { opacity: 0; translate: 0 16px; }
+  to { opacity: 1; translate: 0 0; }
+}
+@keyframes settle {
+  from { scale: 1.07; }
+  to { scale: 1; }
+}
+/* A bead is laid left to right, starts white-hot, then cools to brand. */
+@keyframes weld-bead {
+  0% { scale: 0 1; background: var(--weld-hot); box-shadow: 0 0 10px 2px var(--weld-glow); }
+  55% { scale: 1 1; background: var(--weld-glow); box-shadow: 0 0 8px 1px var(--weld-glow); }
+  100% { scale: 1 1; background: currentColor; box-shadow: 0 0 0 0 transparent; }
+}
+/* Irregular, low-intensity arc-light flicker. */
+@keyframes arc-flicker {
+  0%, 100% { opacity: 0.35; }
+  8% { opacity: 0.55; }
+  10% { opacity: 0.3; }
+  23% { opacity: 0.5; }
+  40% { opacity: 0.38; }
+  52% { opacity: 0.6; }
+  55% { opacity: 0.34; }
+  71% { opacity: 0.48; }
+  86% { opacity: 0.4; }
+}
+@keyframes header-lift {
+  to { box-shadow: 0 1px 0 rgb(23 20 15 / 0.04), 0 10px 24px -14px rgb(23 20 15 / 0.25); }
+}
+
+/* Arc light: decorative glow placed over the welder in hero images. */
+.arc-glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    circle at var(--arc-x, 72%) var(--arc-y, 48%),
+    rgb(255 179 92 / 0.32) 0%,
+    rgb(192 146 119 / 0.12) 18%,
+    transparent 42%
+  );
+  mix-blend-mode: screen;
+  opacity: 0.35;
+}
+
+/* Heat line: cards get a hot edge that sweeps across on hover. */
+.card-heat {
+  position: relative;
+  isolation: isolate;
+}
+.card-heat::after {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--brand-dark), var(--weld-glow) 70%, var(--weld-hot));
+  scale: 0 1;
+  transform-origin: left center;
+  transition: scale 500ms var(--ease-out-soft);
+}
+.card-heat:hover::after,
+.card-heat:focus-visible::after {
+  scale: 1 1;
+}
+.card-heat .card-icon,
+.card-heat .card-num {
+  transition:
+    rotate var(--duration-hover) var(--ease-out-soft),
+    color var(--duration-hover) var(--ease-out-soft);
+}
+.card-heat:hover .card-num {
+  color: var(--brand);
+}
+
+.arrow-nudge {
+  display: inline-block;
+  transition: translate var(--duration-hover) var(--ease-out-soft);
+}
+
+.btn-press {
+  transition:
+    background-color var(--duration-hover) var(--ease-out-soft),
+    border-color var(--duration-hover) var(--ease-out-soft),
+    color var(--duration-hover) var(--ease-out-soft),
+    translate 120ms ease-out;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  /* Hero entrance: children rise in sequence; the photo settles. */
+  .hero-rise > * {
+    animation: rise 900ms var(--ease-out-soft) both;
+  }
+  .hero-rise > *:nth-child(2) { animation-delay: 80ms; }
+  .hero-rise > *:nth-child(3) { animation-delay: 160ms; }
+  .hero-rise > *:nth-child(4) { animation-delay: 240ms; }
+  .hero-rise > *:nth-child(5) { animation-delay: 320ms; }
+  .hero-stats > * {
+    animation: rise 900ms var(--ease-out-soft) both;
+    animation-delay: calc(360ms + var(--i, 0) * 90ms);
+  }
+  .hero-settle {
+    animation: settle 2.6s var(--ease-out-soft) both;
+  }
+  .arc-glow {
+    animation: arc-flicker 4.2s steps(1, end) infinite;
+  }
+  .hero-rise .eyebrow::before {
+    animation: weld-bead 1.2s var(--ease-out-soft) 300ms both;
+  }
+
+  .card-heat:hover .card-icon {
+    rotate: -12deg;
+  }
+  .group:hover .arrow-nudge,
+  .group:focus-visible .arrow-nudge {
+    translate: 4px 0;
+  }
+  .btn-press:active {
+    translate: 0 1px;
+  }
+
+  /* Scroll-driven effects (pure CSS). Unsupported browsers show content as-is. */
+  @supports (animation-timeline: view()) {
+    .reveal {
+      animation: rise linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 60%;
+    }
+    .eyebrow::before {
+      animation: weld-bead linear both;
+      animation-timeline: view();
+      animation-range: entry 40% cover 30%;
+    }
+  }
+  @supports (animation-timeline: scroll()) {
+    .header-scroll {
+      animation: header-lift linear both;
+      animation-timeline: scroll();
+      animation-range: 0 120px;
+    }
+  }
+
+  /* Smooth open/close for FAQ <details> where supported. */
+  :root {
+    interpolate-size: allow-keywords;
+  }
+  .faq-item::details-content {
+    block-size: 0;
+    overflow: clip;
+    transition:
+      block-size 400ms var(--ease-out-soft),
+      content-visibility 400ms allow-discrete;
+  }
+  .faq-item[open]::details-content {
+    block-size: auto;
+  }
+}

@@ -43,7 +43,7 @@ export default function SafetyQuality() {
     <section id="safety" className="border-b border-line bg-paper-alt">
       <div className="mx-auto max-w-6xl px-6 py-20 lg:px-8">
         <div className="max-w-2xl">
-          <p className="text-sm font-semibold uppercase tracking-widest text-brand-dark">
+          <p className="eyebrow text-sm font-semibold uppercase tracking-widest text-brand-dark">
             Safety &amp; Quality
           </p>
           <h2 className="mt-3 font-display text-3xl font-bold uppercase tracking-tight text-ink sm:text-4xl">
@@ -52,7 +52,7 @@ export default function SafetyQuality() {
         </div>
 
         <div className="mt-12 grid gap-10 sm:grid-cols-2">
-          <div className="rounded-sm border border-line bg-paper p-8">
+          <div className="reveal rounded-sm border border-line bg-paper p-8">
             <IconShield className="h-9 w-9 text-brand-dark" />
             <h3 className="mt-4 font-display text-xl font-bold text-ink">Safety First</h3>
             <p className="mt-2 text-sm leading-relaxed text-ink-soft">
@@ -69,7 +69,7 @@ export default function SafetyQuality() {
             </ul>
           </div>
 
-          <div className="rounded-sm border border-line bg-paper p-8">
+          <div className="reveal rounded-sm border border-line bg-paper p-8">
             <IconCheckBadge className="h-9 w-9 text-brand-dark" />
             <h3 className="mt-4 font-display text-xl font-bold text-ink">Built on Quality</h3>
             <p className="mt-2 text-sm leading-relaxed text-ink-soft">

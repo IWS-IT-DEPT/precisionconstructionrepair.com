@@ -18,7 +18,7 @@ export default function SiteHeader() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-line/80 bg-paper/95 backdrop-blur supports-[backdrop-filter]:bg-paper/80">
+    <header className="header-scroll sticky top-0 z-50 border-b border-line/80 bg-paper/95 backdrop-blur supports-[backdrop-filter]:bg-paper/80">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 lg:px-8">
         <Link href="/#top" className="flex items-center gap-3" onClick={() => setOpen(false)}>
           <span className="flex items-center rounded-md bg-night p-1.5">

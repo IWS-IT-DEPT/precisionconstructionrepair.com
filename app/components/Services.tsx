@@ -110,7 +110,7 @@ export default function Services() {
     <section id="services" className="border-b border-line bg-paper">
       <div className="mx-auto max-w-6xl px-6 py-20 lg:px-8">
         <div className="max-w-2xl">
-          <p className="text-sm font-semibold uppercase tracking-widest text-brand-dark">
+          <p className="eyebrow text-sm font-semibold uppercase tracking-widest text-brand-dark">
             What We Do
           </p>
           <h2 className="mt-3 font-display text-3xl font-bold uppercase tracking-tight text-ink sm:text-4xl">
@@ -128,17 +128,17 @@ export default function Services() {
             <Link
               key={service.title}
               href={service.href}
-              className="group bg-paper p-8 transition-colors hover:bg-paper-alt"
+              className="reveal card-heat group bg-paper p-8 transition-colors hover:bg-paper-alt"
             >
               <div className="flex items-start justify-between">
-                <service.icon className="h-9 w-9 text-brand-dark" />
-                <span className="font-display text-2xl font-bold text-line">
+                <service.icon className="card-icon h-9 w-9 text-brand-dark" />
+                <span className="card-num font-display text-2xl font-bold text-line">
                   {String(i + 1).padStart(2, "0")}
                 </span>
               </div>
               <h3 className="mt-5 font-display text-lg font-bold text-ink">{service.title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-ink-soft">{service.body}</p>
-              <span className="mt-4 inline-block text-sm font-semibold text-brand-dark">Learn more &rarr;</span>
+              <span className="mt-4 inline-block text-sm font-semibold text-brand-dark">Learn more <span className="arrow-nudge" aria-hidden>&rarr;</span></span>
             </Link>
           ))}
         </div>

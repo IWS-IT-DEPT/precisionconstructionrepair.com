@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import heroImage from "@/public/images/hero-welding.jpg";
@@ -12,7 +13,7 @@ export default function Hero() {
         priority
         placeholder="blur"
         sizes="100vw"
-        className="object-cover object-[75%_50%]"
+        className="hero-settle object-cover object-[75%_50%]"
       />
       <div
         className="pointer-events-none absolute inset-0 bg-gradient-to-r from-night via-night/85 to-night/40"
@@ -23,8 +24,10 @@ export default function Hero() {
         aria-hidden
       />
 
+      <div className="arc-glow [--arc-x:50%] [--arc-y:80%] lg:[--arc-x:67%] lg:[--arc-y:86%]" aria-hidden />
+
       <div className="relative mx-auto flex max-w-6xl flex-col gap-10 px-6 py-24 lg:flex-row lg:items-center lg:gap-16 lg:px-8 lg:py-32">
-        <div className="max-w-2xl">
+        <div className="hero-rise max-w-2xl">
           <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-brand/40 bg-brand/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-brand">
             Mobile, AL &middot; Serving the Gulf Coast
           </p>
@@ -39,27 +42,27 @@ export default function Hero() {
           <div className="mt-10 flex flex-col gap-4 sm:flex-row">
             <Link
               href="/quote"
-              className="rounded-sm bg-brand px-7 py-3.5 text-center text-sm font-semibold uppercase tracking-wide text-night transition-colors hover:bg-white"
+              className="btn-press rounded-sm bg-brand px-7 py-3.5 text-center text-sm font-semibold uppercase tracking-wide text-night transition-colors hover:bg-white"
             >
               Get a Quote
             </Link>
             <a
               href="#services"
-              className="rounded-sm border border-white/25 px-7 py-3.5 text-center text-sm font-semibold uppercase tracking-wide text-white transition-colors hover:border-white/60"
+              className="btn-press rounded-sm border border-white/25 px-7 py-3.5 text-center text-sm font-semibold uppercase tracking-wide text-white transition-colors hover:border-white/60"
             >
               Our Services
             </a>
           </div>
         </div>
 
-        <dl className="grid flex-1 grid-cols-2 gap-6 border-t border-white/10 pt-10 lg:border-l lg:border-t-0 lg:pl-16 lg:pt-0">
+        <dl className="hero-stats grid flex-1 grid-cols-2 gap-6 border-t border-white/10 pt-10 lg:border-l lg:border-t-0 lg:pl-16 lg:pt-0">
           {[
             { value: "24/7", label: "Emergency response for critical failures" },
             { value: "Steel & Chemical", label: "Specialized experience in heavy manufacturing" },
             { value: "Machining", label: "In-house machining, welding & fabrication" },
             { value: "Mon–Fri", label: "7:00 AM – 3:30 PM office hours" },
-          ].map((stat) => (
-            <div key={stat.label}>
+          ].map((stat, i) => (
+            <div key={stat.label} style={{ "--i": i } as CSSProperties}>
               <dt className="font-display text-3xl font-bold text-brand">{stat.value}</dt>
               <dd className="mt-1 text-sm leading-snug text-white/60">{stat.label}</dd>
             </div>

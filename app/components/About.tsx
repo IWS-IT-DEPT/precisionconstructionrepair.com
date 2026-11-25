@@ -9,7 +9,7 @@ export default function About() {
     <section id="about" className="border-b border-line bg-paper">
       <div className="mx-auto grid max-w-6xl gap-12 px-6 py-20 lg:grid-cols-[1fr_1fr] lg:gap-16 lg:px-8">
         <div>
-          <p className="text-sm font-semibold uppercase tracking-widest text-brand-dark">
+          <p className="eyebrow text-sm font-semibold uppercase tracking-widest text-brand-dark">
             About Us
           </p>
           <h2 className="mt-3 font-display text-3xl font-bold uppercase tracking-tight text-ink sm:text-4xl">
@@ -56,14 +56,14 @@ export default function About() {
           </div>
 
           <div>
-            <p className="text-sm font-semibold uppercase tracking-widest text-brand-dark">
+            <p className="eyebrow text-sm font-semibold uppercase tracking-widest text-brand-dark">
               Industries We Serve
             </p>
             <ul className="mt-3 grid grid-cols-2 gap-3">
               {INDUSTRIES.map((industry) => (
                 <li
                   key={industry}
-                  className="rounded-sm border border-line bg-paper-alt px-4 py-3 text-sm font-medium text-ink"
+                  className="reveal rounded-sm border border-line bg-paper-alt px-4 py-3 text-sm font-medium text-ink"
                 >
                   {industry}
                 </li>

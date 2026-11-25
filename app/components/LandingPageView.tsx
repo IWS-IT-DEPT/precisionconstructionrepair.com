@@ -15,13 +15,13 @@ function CtaButtons({ callLabel }: { callLabel: string }) {
     <div className="flex flex-col gap-4 sm:flex-row">
       <Link
         href="/quote"
-        className="rounded-sm bg-brand px-7 py-3.5 text-center text-sm font-semibold uppercase tracking-wide text-night transition-colors hover:bg-white"
+        className="btn-press rounded-sm bg-brand px-7 py-3.5 text-center text-sm font-semibold uppercase tracking-wide text-night transition-colors hover:bg-white"
       >
         Get a Quote
       </Link>
       <a
         href={PHONE_HREF}
-        className="rounded-sm border border-white/25 px-7 py-3.5 text-center text-sm font-semibold uppercase tracking-wide text-white transition-colors hover:border-white/60"
+        className="btn-press rounded-sm border border-white/25 px-7 py-3.5 text-center text-sm font-semibold uppercase tracking-wide text-white transition-colors hover:border-white/60"
       >
         {callLabel}
       </a>
@@ -55,13 +55,16 @@ export default function LandingPageView({
           priority
           placeholder="blur"
           sizes="100vw"
-          className="object-cover object-[75%_50%]"
+          className="hero-settle object-cover object-[75%_50%]"
         />
         <div
           className="pointer-events-none absolute inset-0 bg-gradient-to-r from-night via-night/90 to-night/60"
           aria-hidden
         />
-        <div className="relative mx-auto max-w-6xl px-6 py-20 lg:px-8 lg:py-28">
+        {page.image === "welding" && (
+          <div className="arc-glow [--arc-x:50%] [--arc-y:80%] lg:[--arc-x:67%] lg:[--arc-y:86%]" aria-hidden />
+        )}
+        <div className="hero-rise relative mx-auto max-w-6xl px-6 py-20 lg:px-8 lg:py-28">
           <nav aria-label="Breadcrumb" className="mb-6 text-sm text-white/60">
             <ol className="flex flex-wrap items-center gap-2">
               {breadcrumbs.map((crumb, i) => (
@@ -80,7 +83,7 @@ export default function LandingPageView({
               ))}
             </ol>
           </nav>
-          <p className="text-sm font-semibold uppercase tracking-widest text-brand">{page.eyebrow}</p>
+          <p className="eyebrow text-sm font-semibold uppercase tracking-widest text-brand">{page.eyebrow}</p>
           <h1 className="mt-3 max-w-3xl font-display text-4xl font-bold uppercase leading-[1.05] tracking-tight sm:text-5xl">
             {page.h1}
           </h1>
@@ -108,7 +111,7 @@ export default function LandingPageView({
             {section.items && (
               <div className="mt-10 grid gap-px overflow-hidden rounded-sm border border-line bg-line sm:grid-cols-2">
                 {section.items.map((item) => (
-                  <div key={item.title} className="bg-paper p-7">
+                  <div key={item.title} className="reveal bg-paper p-7">
                     <h3 className="font-display text-lg font-bold text-ink">{item.title}</h3>
                     <p className="mt-2 text-sm leading-relaxed text-ink-soft">{item.text}</p>
                   </div>
@@ -127,7 +130,7 @@ export default function LandingPageView({
             </h2>
             <div className="mt-8 divide-y divide-line rounded-sm border border-line bg-paper">
               {page.faqs.map((faq) => (
-                <details key={faq.q} className="group p-6">
+                <details key={faq.q} className="faq-item group p-6">
                   <summary className="flex cursor-pointer list-none items-start justify-between gap-4 font-semibold text-ink">
                     <h3>{faq.q}</h3>
                     <span aria-hidden className="text-brand-dark transition-transform group-open:rotate-45">
@@ -143,12 +146,12 @@ export default function LandingPageView({
             <h2 className="font-display text-xl font-bold uppercase tracking-tight text-ink">Related</h2>
             <ul className="mt-6 space-y-3">
               {related.map((link) => (
-                <li key={link.href}>
+                <li key={link.href} className="reveal">
                   <Link
                     href={link.href}
-                    className="block rounded-sm border border-line bg-paper-alt p-5 transition-colors hover:border-brand-dark"
+                    className="group block rounded-sm border border-line bg-paper-alt p-5 transition-colors hover:border-brand-dark"
                   >
-                    <span className="font-semibold text-brand-dark">{link.label} &rarr;</span>
+                    <span className="font-semibold text-brand-dark">{link.label} <span className="arrow-nudge" aria-hidden>&rarr;</span></span>
                     <span className="mt-1 block text-sm text-ink-soft">{link.description}</span>
                   </Link>
                 </li>

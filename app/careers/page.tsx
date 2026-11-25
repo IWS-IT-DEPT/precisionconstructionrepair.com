@@ -117,7 +117,7 @@ export default function CareersPage() {
     <>
       <section className="border-b border-line bg-night text-white">
         <div className="mx-auto max-w-6xl px-6 py-20 lg:px-8">
-          <p className="text-sm font-semibold uppercase tracking-widest text-brand">
+          <p className="eyebrow text-sm font-semibold uppercase tracking-widest text-brand">
             Careers
           </p>
           <h1 className="mt-3 max-w-3xl font-display text-3xl font-bold uppercase leading-tight tracking-tight sm:text-4xl lg:text-5xl">
@@ -134,7 +134,7 @@ export default function CareersPage() {
       <section className="border-b border-line bg-paper-alt">
         <div className="mx-auto max-w-6xl px-6 py-20 lg:px-8">
           <div className="max-w-2xl">
-            <p className="text-sm font-semibold uppercase tracking-widest text-brand-dark">
+            <p className="eyebrow text-sm font-semibold uppercase tracking-widest text-brand-dark">
               Why Work Here
             </p>
             <h2 className="mt-3 font-display text-3xl font-bold uppercase tracking-tight text-ink sm:text-4xl">
@@ -144,7 +144,7 @@ export default function CareersPage() {
 
           <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {REASONS.map((reason) => (
-              <div key={reason.title} className="rounded-sm border border-line bg-paper p-6">
+              <div key={reason.title} className="reveal rounded-sm border border-line bg-paper p-6">
                 <reason.icon className="h-8 w-8 text-brand-dark" />
                 <h3 className="mt-4 font-display text-base font-bold text-ink">{reason.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-ink-soft">{reason.body}</p>
@@ -157,7 +157,7 @@ export default function CareersPage() {
       <section className="border-b border-line bg-paper">
         <div className="mx-auto max-w-6xl px-6 py-20 lg:px-8">
           <div className="max-w-2xl">
-            <p className="text-sm font-semibold uppercase tracking-widest text-brand-dark">
+            <p className="eyebrow text-sm font-semibold uppercase tracking-widest text-brand-dark">
               Positions
             </p>
             <h2 className="mt-3 font-display text-3xl font-bold uppercase tracking-tight text-ink sm:text-4xl">
@@ -172,7 +172,7 @@ export default function CareersPage() {
 
           <div className="mt-12 grid gap-px overflow-hidden rounded-sm border border-line bg-line sm:grid-cols-2 lg:grid-cols-4">
             {POSITIONS.map((position) => (
-              <div key={position.title} className="bg-paper p-6">
+              <div key={position.title} className="reveal bg-paper p-6">
                 <h3 className="font-display text-base font-bold text-ink">{position.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-ink-soft">{position.body}</p>
               </div>
@@ -184,7 +184,7 @@ export default function CareersPage() {
       <section id="apply" className="bg-paper-alt">
         <div className="mx-auto max-w-6xl px-6 py-20 lg:px-8">
           <div className="max-w-2xl">
-            <p className="text-sm font-semibold uppercase tracking-widest text-brand-dark">
+            <p className="eyebrow text-sm font-semibold uppercase tracking-widest text-brand-dark">
               Apply Now
             </p>
             <h2 className="mt-3 font-display text-3xl font-bold uppercase tracking-tight text-ink sm:text-4xl">

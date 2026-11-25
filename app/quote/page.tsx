@@ -21,7 +21,7 @@ export default function QuotePage() {
     <section className="bg-paper-alt">
       <div className="mx-auto max-w-6xl px-6 py-20 lg:px-8">
         <div className="max-w-2xl">
-          <p className="text-sm font-semibold uppercase tracking-widest text-brand-dark">
+          <p className="eyebrow text-sm font-semibold uppercase tracking-widest text-brand-dark">
             Get a Quote
           </p>
           <h1 className="mt-3 font-display text-3xl font-bold uppercase tracking-tight text-ink sm:text-4xl">

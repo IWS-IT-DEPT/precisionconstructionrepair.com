@@ -26,7 +26,7 @@ export default function HubPage({
       />
       <div className="mx-auto max-w-6xl px-6 py-20 lg:px-8">
         <div className="max-w-2xl">
-          <p className="text-sm font-semibold uppercase tracking-widest text-brand-dark">{eyebrow}</p>
+          <p className="eyebrow text-sm font-semibold uppercase tracking-widest text-brand-dark">{eyebrow}</p>
           <h1 className="mt-3 font-display text-3xl font-bold uppercase tracking-tight text-ink sm:text-4xl">
             {title}
           </h1>
@@ -34,11 +34,11 @@ export default function HubPage({
         </div>
         <ul className="mt-12 grid gap-px overflow-hidden rounded-sm border border-line bg-line sm:grid-cols-2 lg:grid-cols-3">
           {links.map((link) => (
-            <li key={link.href} className="bg-paper">
-              <Link href={link.href} className="block h-full p-8 transition-colors hover:bg-paper-alt">
+            <li key={link.href} className="reveal bg-paper">
+              <Link href={link.href} className="card-heat group block h-full p-8 transition-colors hover:bg-paper-alt">
                 <h2 className="font-display text-lg font-bold text-ink">{link.label}</h2>
                 <p className="mt-2 text-sm leading-relaxed text-ink-soft">{link.description}</p>
-                <span className="mt-4 inline-block text-sm font-semibold text-brand-dark">Learn more &rarr;</span>
+                <span className="mt-4 inline-block text-sm font-semibold text-brand-dark">Learn more <span className="arrow-nudge" aria-hidden>&rarr;</span></span>
               </Link>
             </li>
           ))}

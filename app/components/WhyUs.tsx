@@ -18,7 +18,7 @@ export default function WhyUs() {
     <section className="border-b border-line bg-paper-alt">
       <div className="mx-auto max-w-6xl px-6 py-20 lg:px-8">
         <div className="max-w-2xl">
-          <p className="text-sm font-semibold uppercase tracking-widest text-brand-dark">
+          <p className="eyebrow text-sm font-semibold uppercase tracking-widest text-brand-dark">
             Why Work With Us
           </p>
           <h2 className="mt-3 font-display text-3xl font-bold uppercase tracking-tight text-ink sm:text-4xl">
@@ -28,7 +28,7 @@ export default function WhyUs() {
 
         <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {REASONS.map((reason, i) => (
-            <div key={reason.title} className="border-t-2 border-brand pt-6">
+            <div key={reason.title} className="reveal border-t-2 border-brand pt-6">
               <span className="font-display text-4xl font-bold text-line">
                 {String(i + 1).padStart(2, "0")}
               </span>
