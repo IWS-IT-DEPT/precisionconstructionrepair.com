@@ -28,8 +28,14 @@ export default function SiteFooter() {
           <Link href="/#top" className="transition-colors hover:text-white">
             Back to top
           </Link>
-          <Link href="/#services" className="transition-colors hover:text-white">
+          <Link href="/services" className="transition-colors hover:text-white">
             Services
+          </Link>
+          <Link href="/service-areas" className="transition-colors hover:text-white">
+            Service Areas
+          </Link>
+          <Link href="/services/boiler-pressure-vessel-repair" className="transition-colors hover:text-white">
+            R Stamp Repairs
           </Link>
           <Link href="/quote" className="transition-colors hover:text-white">
             Get a Quote

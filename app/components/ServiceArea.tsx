@@ -1,3 +1,8 @@
+import Link from "next/link";
+import { serviceAreas } from "@/app/lib/seo-pages";
+
+const AREA_PAGES = new Map(serviceAreas.map((a) => [a.shortName, `/service-areas/${a.slug}`]));
+
 const AREAS = [
   "Mobile, AL",
   "Saraland, AL",
@@ -33,7 +38,13 @@ export default function ServiceArea() {
           {AREAS.map((area) => (
             <li key={area} className="flex items-center gap-2 text-sm text-white/80">
               <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-brand" />
-              {area}
+              {AREA_PAGES.has(area) ? (
+                <Link href={AREA_PAGES.get(area)!} className="underline decoration-brand/60 underline-offset-4 hover:text-white">
+                  {area}
+                </Link>
+              ) : (
+                area
+              )}
             </li>
           ))}
         </ul>

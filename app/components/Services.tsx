@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { SVGProps } from "react";
 
 function IconWrench(props: SVGProps<SVGSVGElement>) {
@@ -69,31 +70,37 @@ const SERVICES = [
   {
     icon: IconGauge,
     title: "Industrial Maintenance",
+    href: "/services/industrial-maintenance",
     body: "Routine and planned maintenance for production equipment, mechanical systems, and plant infrastructure — keeping steel and chemical operations running.",
   },
   {
     icon: IconGear,
     title: "Precision Machining",
+    href: "/services/on-site-machining",
     body: "In-house and on-site machining of custom parts, replacement components, and equipment rebuilds to exact tolerances.",
   },
   {
     icon: IconFlame,
     title: "Welding & Fabrication",
+    href: "/services/welding-fabrication",
     body: "Structural, process piping, and equipment welding along with custom metal fabrication built to withstand demanding industrial environments.",
   },
   {
     icon: IconWrench,
     title: "Millwright & Equipment Repair",
+    href: "/services/millwright-equipment-repair",
     body: "Installation, alignment, and repair of industrial machinery, conveyors, and process equipment by experienced millwrights.",
   },
   {
     icon: IconBuilding,
     title: "Structural & Steel Repair",
+    href: "/services/structural-steel-repair",
     body: "Repair and reinforcement of structural steel, platforms, and plant infrastructure to restore integrity and extend service life.",
   },
   {
     icon: IconBolt,
     title: "Emergency & Turnaround Support",
+    href: "/services/emergency-turnaround-support",
     body: "24/7 emergency response and dedicated crews for planned shutdowns and turnarounds, minimizing costly downtime.",
   },
 ];
@@ -118,7 +125,11 @@ export default function Services() {
 
         <div className="mt-12 grid gap-px overflow-hidden rounded-sm border border-line bg-line sm:grid-cols-2 lg:grid-cols-3">
           {SERVICES.map((service, i) => (
-            <div key={service.title} className="group bg-paper p-8 transition-colors hover:bg-paper-alt">
+            <Link
+              key={service.title}
+              href={service.href}
+              className="group bg-paper p-8 transition-colors hover:bg-paper-alt"
+            >
               <div className="flex items-start justify-between">
                 <service.icon className="h-9 w-9 text-brand-dark" />
                 <span className="font-display text-2xl font-bold text-line">
@@ -127,7 +138,8 @@ export default function Services() {
               </div>
               <h3 className="mt-5 font-display text-lg font-bold text-ink">{service.title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-ink-soft">{service.body}</p>
-            </div>
+              <span className="mt-4 inline-block text-sm font-semibold text-brand-dark">Learn more &rarr;</span>
+            </Link>
           ))}
         </div>
       </div>
