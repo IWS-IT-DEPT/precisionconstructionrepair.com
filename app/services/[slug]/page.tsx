@@ -6,6 +6,8 @@ import { servicePageJsonLd } from "@/app/lib/structured-data";
 
 export const dynamicParams = false;
 
+const AREA_NAMES = serviceAreas.map((a) => a.shortName).join(", ");
+
 export function generateStaticParams() {
   return servicePages.map((page) => ({ slug: page.slug }));
 }
@@ -32,11 +34,7 @@ export default async function ServicePage(props: PageProps<"/services/[slug]">) 
     ...servicePages
       .filter((p) => p.slug !== page.slug)
       .map((p) => ({ href: `/services/${p.slug}`, label: p.eyebrow, description: p.summary })),
-    ...serviceAreas.map((a) => ({
-      href: `/service-areas/${a.slug}`,
-      label: `Serving ${a.shortName}`,
-      description: a.summary,
-    })),
+    { href: "/service-areas", label: "Service areas", description: AREA_NAMES },
   ];
 
   return (

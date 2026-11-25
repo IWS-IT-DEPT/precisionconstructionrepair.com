@@ -38,6 +38,8 @@ export type ServiceArea = LandingPage & {
   stateName: string;
   /** Short name for links, e.g. "Jackson, AL" */
   shortName: string;
+  /** Slugs of neighboring service areas, shown as related links */
+  nearby: string[];
 };
 
 const QUOTE_FAQ: Faq = {
@@ -314,46 +316,50 @@ export const servicePages: LandingPage[] = [
   },
 ];
 
+// Each service-area page is written around what is actually different about
+// that place (local industry, geography, which services matter most there) so
+// the pages don't read as near-duplicates. Only QUOTE_FAQ is shared.
+
 export const serviceAreas: ServiceArea[] = [
   {
     slug: "jackson-al",
     city: "Jackson",
     stateName: "Alabama",
     shortName: "Jackson, AL",
+    nearby: ["calvert-al", "axis-al", "mobile-al"],
     metaTitle: "Industrial Contractor in Jackson, AL | Maintenance, Machining & Welding",
     metaDescription:
-      "Industrial contractor serving Jackson, AL and Clarke County along the US-43 corridor: industrial maintenance, machining, welding, millwright work, and 24/7 emergency repair for steel and chemical plants.",
+      "Industrial contractor for plants in Jackson, AL and Clarke County: planned maintenance, millwright and conveyor work, on-site machining, and 24/7 emergency repair at the north end of the US-43 corridor.",
     eyebrow: "Jackson, Alabama",
     h1: "Industrial contractor serving Jackson, AL",
     intro:
-      "Jackson anchors the north end of the US-43 industrial corridor, and it's where much of our current work happens. Precision Construction Repair provides industrial maintenance, machining, welding and fabrication, millwright work, and 24/7 emergency response to plants in and around Jackson and Clarke County.",
+      "Jackson sits on the Tombigbee River in Clarke County, at the north end of the US-43 industrial corridor that runs up from Mobile. Much of our current work happens along this corridor, and Jackson-area plants get the full range of our crews: maintenance, millwright, machining, welding, and around-the-clock emergency response.",
     summary: "The north end of the US-43 corridor, where much of our current work is concentrated.",
     image: "welding",
     imageAlt: "Industrial welding work at a plant job site",
     sections: [
       {
-        heading: "Services for Jackson-area plants",
+        heading: "Industry at the top of the corridor",
         body: [
-          "Most of our current work is concentrated along US-43 between Mobile and Jackson. Plants in the Jackson area get the same crews and capabilities we bring to every job.",
-        ],
-        items: [
-          { title: "Industrial maintenance", text: "Routine and planned maintenance for production equipment, mechanical systems, and plant infrastructure." },
-          { title: "Machining", text: "In-house and on-site machining of custom parts, replacement components, and rebuilds." },
-          { title: "Welding & fabrication", text: "Structural, process piping, and equipment welding, plus R Stamp boiler and pressure vessel repairs." },
-          { title: "Emergency & turnarounds", text: "24/7 emergency response and dedicated crews for shutdowns and turnarounds." },
+          "Clarke County is timber country, and the Jackson area's industry reflects that, along with the chemical and heavy manufacturing found down the river toward McIntosh. Plants this far up the corridor can't afford to wait on a contractor driving in from somewhere else when a line goes down.",
+          "That's why we treat Jackson as core territory rather than an edge of our map: planned work gets scheduled like any other job, and emergency calls get the same 24/7 response.",
         ],
       },
       {
-        heading: "Why plants along US-43 work with us",
-        body: [
-          "We're an industrial service company rooted in the Mobile area with deep experience in steel and chemical manufacturing. We self-perform our work with direct-hire tradespeople, follow strict safety protocols on every job, and keep communication clear from first call to final walkthrough.",
+        heading: "What Jackson-area plants call us for",
+        body: [],
+        items: [
+          { title: "Planned maintenance programs", text: "Recurring maintenance on production equipment and mechanical systems so problems are caught before they become outages." },
+          { title: "Conveyors and material handling", text: "Our millwrights install, align, and repair conveyors and the machinery that moves material through the plant." },
+          { title: "On-site machining", text: "When a worn component can't easily be pulled and shipped out, we machine it where it sits or rebuild it in our shop." },
+          { title: "Overnight and weekend breakdowns", text: "Round-the-clock emergency response for critical failures, with welding, machining, and millwright skills on the same crew." },
         ],
       },
     ],
     faqs: [
-      { q: "Do you work in Jackson, AL?", a: "Yes. Jackson is part of our core service area, and much of our current work is along the US-43 industrial corridor between Mobile and Jackson." },
-      EMERGENCY_FAQ,
-      CREWS_FAQ,
+      { q: "Do you really cover Jackson, or just the Mobile area?", a: "Jackson is core territory. Much of our current work is along the US-43 corridor between Mobile and Jackson, so plants at the north end of the corridor are a regular part of our schedule." },
+      { q: "Can you work on conveyors and material handling equipment?", a: "Yes. Our millwrights install, align, and repair conveyors, industrial machinery, and process equipment, and we can machine or fabricate replacement parts in-house." },
+      { q: "What happens if a Jackson-area plant has a failure at night?", a: `Call ${PHONE_DISPLAY}. We provide 24/7 emergency response for critical equipment and structural failures.` },
       QUOTE_FAQ,
     ],
   },
@@ -362,40 +368,292 @@ export const serviceAreas: ServiceArea[] = [
     city: "Mobile",
     stateName: "Alabama",
     shortName: "Mobile, AL",
+    nearby: ["chickasaw-al", "saraland-al", "bayou-la-batre-al", "pascagoula-ms"],
     metaTitle: "Industrial Maintenance, Machining & Welding in Mobile, AL",
     metaDescription:
-      "Mobile-area industrial contractor providing maintenance, machining, welding, millwright work, and 24/7 emergency repair to plants in Mobile, Saraland, Chickasaw, Creola, Calvert, and Bayou La Batre.",
+      "Mobile-based industrial contractor with an office in Eight Mile: machining, welding and fabrication, millwright work, structural repair, and 24/7 emergency response for plants across Mobile County.",
     eyebrow: "Mobile, Alabama",
     h1: "Industrial maintenance, machining and welding in Mobile, AL",
     intro:
-      "Precision Construction Repair is based in the Mobile area, with our office in Eight Mile. We serve steel, chemical, and heavy manufacturing plants across Mobile and the surrounding communities, from Bayou La Batre to Saraland, Chickasaw, Creola, and Calvert.",
-    summary: "Home base: Mobile, Saraland, Chickasaw, Creola, Calvert, and Bayou La Batre.",
+      "Mobile is home. Our office is in Eight Mile, on the city's northwest side, and every corridor job starts here. For plants and industrial facilities in Mobile itself, that means the shortest possible trip from our shop to your gate.",
+    summary: "Home base: our office is in Eight Mile, serving plants across Mobile County.",
     image: "machining",
     imageAlt: "Machinist performing precision machining work in the Mobile area",
     sections: [
       {
-        heading: "Services for Mobile-area plants",
+        heading: "Rooted in Mobile, working up and down the coast",
         body: [
-          "Being local means we can get to your facility quickly, whether it's planned work or a 24/7 emergency callout.",
-        ],
-        items: [
-          { title: "Industrial maintenance", text: "Routine and planned maintenance for production equipment, mechanical systems, and plant infrastructure." },
-          { title: "Machining", text: "In-house and on-site machining of custom parts, replacement components, and rebuilds." },
-          { title: "Welding & fabrication", text: "Structural, process piping, and equipment welding, plus R Stamp boiler and pressure vessel repairs." },
-          { title: "Millwright & structural", text: "Machinery installation, alignment, and repair, plus structural steel and platform repair." },
+          "The Port of Mobile and the industry around it make this one of the Gulf Coast's busiest manufacturing regions. We started here, our tradespeople live here, and from Eight Mile we head north up US-43 toward Jackson, south toward Bayou La Batre, and west into Mississippi.",
+          "Office hours are Monday through Friday, 7:00 AM to 3:30 PM. Outside those hours, emergency calls still get answered.",
         ],
       },
       {
-        heading: "Communities we serve around Mobile",
-        body: [
-          "Mobile, Saraland, Chickasaw, Creola, Calvert, and Bayou La Batre, and north along the US-43 corridor to Jackson.",
+        heading: "Our full range, close to home",
+        body: [],
+        items: [
+          { title: "Shop machining", text: "Custom parts, replacement components, and rebuilds machined to tolerance in-house, then delivered or installed by our crew." },
+          { title: "Welding and fabrication", text: "Structural, process piping, and equipment welding plus custom fabrication, including R Stamp boiler and pressure vessel repairs." },
+          { title: "Millwright work", text: "Installation, alignment, and repair of machinery and process equipment." },
+          { title: "Structural repair", text: "Repair and reinforcement of structural steel, platforms, and plant infrastructure." },
         ],
       },
     ],
     faqs: [
-      { q: "Where is Precision Construction Repair located?", a: "Our office is in Eight Mile, AL, in the Mobile area. Office hours are Monday to Friday, 7:00 AM to 3:30 PM, with 24/7 emergency response." },
-      EMERGENCY_FAQ,
-      CREWS_FAQ,
+      { q: "Where is your office?", a: "Our office is in Eight Mile, AL, in the Mobile area. Office hours are Monday to Friday, 7:00 AM to 3:30 PM, with 24/7 emergency response outside those hours." },
+      { q: "Which communities around Mobile do you serve?", a: "Mobile, Chickasaw, Saraland, Creola, Axis, Calvert, and Bayou La Batre, north along US-43 to Jackson, and west to Pascagoula, MS." },
+      { q: "Do you self-perform the work?", a: "Yes. We use our own direct-hire tradespeople rather than subcontracted labor, so quality and accountability stay with one company." },
+      QUOTE_FAQ,
+    ],
+  },
+  {
+    slug: "axis-al",
+    city: "Axis",
+    stateName: "Alabama",
+    shortName: "Axis, AL",
+    nearby: ["creola-al", "calvert-al", "saraland-al", "jackson-al"],
+    metaTitle: "Industrial Contractor in Axis, AL | Plant Maintenance, Machining & Welding",
+    metaDescription:
+      "Plant maintenance, process piping and pressure vessel welding, confined space work, and shutdown crews for the industrial manufacturing sites in Axis, AL on the US-43 corridor.",
+    eyebrow: "Axis, Alabama",
+    h1: "Industrial contractor serving Axis, AL",
+    intro:
+      "Axis, in north Mobile County just past Creola on US-43, is home to a concentration of industrial manufacturing sites. It sits in the middle of the stretch between Mobile and Jackson where most of our current work happens, which makes Axis-area plants some of our closest neighbors on the corridor.",
+    summary: "A concentration of industrial manufacturing sites on US-43 in north Mobile County.",
+    image: "welding",
+    imageAlt: "Welder working on industrial plant steel",
+    sections: [
+      {
+        heading: "Process plants need process-plant discipline",
+        body: [
+          "Manufacturing sites like the ones in Axis run pressurized systems, process piping, vessels, and tanks, and the work around them happens under permits, lockouts, and confined space rules. Contractors who treat that as paperwork don't last long on a plant site.",
+          "Our crews get a site-specific safety orientation before they start, follow lockout/tagout on every job, complete pre-task hazard assessments, and are trained to OSHA general industry standards, including confined space entry.",
+        ],
+      },
+      {
+        heading: "Work we bring to Axis-area sites",
+        body: [],
+        items: [
+          { title: "Process piping welding", text: "Welding on process piping systems built for demanding industrial environments." },
+          { title: "Boilers and pressure vessels", text: "Metallic repairs and alterations under our National Board \"R\" Stamp certification." },
+          { title: "Confined space work", text: "Repairs inside tanks, vessels, and enclosed equipment by crews trained in OSHA confined space entry." },
+          { title: "Shutdown and turnaround crews", text: "Dedicated crews with clear scopes and schedules so outage work finishes inside the window." },
+        ],
+      },
+    ],
+    faqs: [
+      { q: "Are your crews trained for confined space entry?", a: "Yes. Crews are trained to OSHA general industry standards, including OSHA confined space entry, and follow confined space protocols on every applicable job." },
+      { q: "Can you repair pressure vessels at an Axis-area plant?", a: "Yes. We are National Board \"R\" Stamp certified for metallic repairs and alterations to boilers and pressure vessels." },
+      { q: "Do you staff planned shutdowns?", a: "Yes. We provide dedicated, direct-hire crews for planned shutdowns and turnarounds, with defined scopes, schedules, and documentation." },
+      QUOTE_FAQ,
+    ],
+  },
+  {
+    slug: "calvert-al",
+    city: "Calvert",
+    stateName: "Alabama",
+    shortName: "Calvert, AL",
+    nearby: ["axis-al", "jackson-al", "creola-al"],
+    metaTitle: "Steel Plant Maintenance & Repair in Calvert, AL | Machining & Welding",
+    metaDescription:
+      "Structural steel repair, heavy-component machining, millwright alignment, and 24/7 breakdown response for steel manufacturing in Calvert, AL, where Mobile and Washington counties meet.",
+    eyebrow: "Calvert, Alabama",
+    h1: "Steel plant maintenance and repair in Calvert, AL",
+    intro:
+      "Calvert, on US-43 where Mobile and Washington counties meet, is one of the region's centers of steel manufacturing. Steel is one of the two industries we know best, so for Calvert-area plants we bring the work that heavy, high-temperature production wears out fastest.",
+    summary: "A steel manufacturing center where Mobile and Washington counties meet.",
+    image: "machining",
+    imageAlt: "Machinist working on a heavy industrial component",
+    sections: [
+      {
+        heading: "Steel production is hard on everything",
+        body: [
+          "Heat, heavy loads, vibration, and around-the-clock operation take a toll on rolls, drives, bearings, and the structures that hold it all up. In a steel plant, a failed component isn't a nuisance. It's lost tons.",
+          "We focus on getting worn and damaged equipment back to tolerance quickly, and on keeping platforms and structural steel sound for the people working around it.",
+        ],
+      },
+      {
+        heading: "What we do for Calvert-area plants",
+        body: [],
+        items: [
+          { title: "Heavy-component machining", text: "Rebuilding and machining worn components back to tolerance, in our shop or on-site when pulling the part isn't practical." },
+          { title: "Structural steel and platforms", text: "Repair and reinforcement of structural members, platforms, and plant infrastructure to restore integrity." },
+          { title: "Alignment and drive work", text: "Millwright installation, alignment, and repair of machinery and drive components." },
+          { title: "Breakdown response", text: "24/7 emergency response when a critical failure stops production." },
+        ],
+      },
+    ],
+    faqs: [
+      { q: "Do you have steel industry experience?", a: "Yes. Steel and chemical manufacturing are the industries we have the deepest experience in." },
+      { q: "Can you machine parts without removing them from the line?", a: "Often, yes. We perform on-site machining when equipment can't easily be removed, and machine parts in-house when it can." },
+      { q: "How fast can you respond to a breakdown in Calvert?", a: `Calvert is on the US-43 corridor where most of our current work is concentrated. For critical failures, call ${PHONE_DISPLAY} any time.` },
+      QUOTE_FAQ,
+    ],
+  },
+  {
+    slug: "creola-al",
+    city: "Creola",
+    stateName: "Alabama",
+    shortName: "Creola, AL",
+    nearby: ["axis-al", "saraland-al", "calvert-al"],
+    metaTitle: "Industrial Contractor in Creola, AL | Repair Crews on the US-43 Corridor",
+    metaDescription:
+      "Creola, AL industrial repair and maintenance: millwright, welding, and machining crews for facilities in north Mobile County, between Saraland and the Axis industrial sites on US-43.",
+    eyebrow: "Creola, Alabama",
+    h1: "Industrial repair crews for Creola, AL",
+    intro:
+      "Creola is a small city in north Mobile County, on US-43 between Saraland and Axis, with the Mobile-Tensaw Delta to the east. It sits at the hinge of the corridor, where the Mobile suburbs give way to the industrial sites that run north toward Calvert and Jackson.",
+    summary: "North Mobile County on US-43, between Saraland and the Axis industrial sites.",
+    image: "welding",
+    imageAlt: "Welder repairing steel framework at a job site",
+    sections: [
+      {
+        heading: "Right in the middle of the corridor",
+        body: [
+          "Because Creola sits between our Mobile-area base and the heavier industry to the north, facilities here fall squarely within the stretch of US-43 where most of our current work is concentrated.",
+          "Smaller facilities often don't need a full turnaround crew. They need someone who will show up for a single repair, do it right, and document it. We take those jobs as seriously as the big ones.",
+        ],
+      },
+      {
+        heading: "Common jobs for Creola-area facilities",
+        body: [],
+        items: [
+          { title: "Single repairs, done once", text: "One-off welding, machining, or millwright repairs with a clear scope and the work verified and inspected before we leave." },
+          { title: "Equipment repair", text: "Teardown, repair, and reinstallation of machinery and process equipment." },
+          { title: "Fabricated replacements", text: "Custom-fabricated parts, brackets, guards, and assemblies when the original can't be repaired." },
+          { title: "Maintenance support", text: "Planned maintenance help for facilities that don't keep a full maintenance crew on staff." },
+        ],
+      },
+    ],
+    faqs: [
+      { q: "Will you take a small, one-time repair in Creola?", a: "Yes. We scope, schedule, and document single repairs the same way we handle larger jobs." },
+      { q: "Do you fabricate replacement parts?", a: "Yes. We do custom metal fabrication and in-house machining for parts that can't be repaired or bought quickly." },
+      { q: "Who will actually do the work?", a: "Our own direct-hire tradespeople. We don't send subcontracted labor." },
+      QUOTE_FAQ,
+    ],
+  },
+  {
+    slug: "saraland-al",
+    city: "Saraland",
+    stateName: "Alabama",
+    shortName: "Saraland, AL",
+    nearby: ["chickasaw-al", "creola-al", "mobile-al", "axis-al"],
+    metaTitle: "Machining, Fabrication & Maintenance in Saraland, AL",
+    metaDescription:
+      "Saraland, AL machining, custom fabrication, and planned maintenance for plants and facilities just north of Mobile, with easy access from I-65 and US-43.",
+    eyebrow: "Saraland, Alabama",
+    h1: "Machining, fabrication and maintenance in Saraland, AL",
+    intro:
+      "Saraland is the first city north of Mobile on US-43, with I-65 running through town. That access makes it one of the quickest places for our crews to reach, which is why Saraland-area facilities lean on us for the jobs where speed matters most: machined parts, fabricated replacements, and maintenance that can't slip.",
+    summary: "First city north of Mobile on US-43, with I-65 access.",
+    image: "machining",
+    imageAlt: "Machinist performing precision machining work",
+    sections: [
+      {
+        heading: "When the part is the problem",
+        body: [
+          "A lot of downtime comes down to one part: obsolete, back-ordered, or worn past saving. Our shop can machine a replacement to drawing, to a worn sample, or to measurements taken on-site, and fabricate brackets, guards, and assemblies around it.",
+          "For Saraland facilities, that shop is a short drive away, so a part machined today can be installed today.",
+        ],
+      },
+      {
+        heading: "Services Saraland facilities use most",
+        body: [],
+        items: [
+          { title: "Replacement parts", text: "One-off and short-run parts machined to tolerance when the original is worn, broken, or unavailable." },
+          { title: "Custom fabrication", text: "Fabricated assemblies, supports, and plant structures built for industrial use." },
+          { title: "Planned maintenance", text: "Scheduled maintenance on production equipment and mechanical systems." },
+          { title: "Millwright installs", text: "Setting, aligning, and installing new or rebuilt machinery." },
+        ],
+      },
+    ],
+    faqs: [
+      { q: "Can you make a part from a worn sample?", a: "Often, yes. Bring us the sample, any partial drawings, or measurements, and we'll discuss what's needed to machine a replacement to tolerance." },
+      { q: "Do you install equipment as well as repair it?", a: "Yes. Our millwrights install, align, and repair industrial machinery and process equipment." },
+      { q: "Is Saraland in your service area?", a: "Yes. Saraland is part of our core Mobile-area service area at the south end of the US-43 corridor." },
+      QUOTE_FAQ,
+    ],
+  },
+  {
+    slug: "chickasaw-al",
+    city: "Chickasaw",
+    stateName: "Alabama",
+    shortName: "Chickasaw, AL",
+    nearby: ["saraland-al", "mobile-al", "creola-al"],
+    metaTitle: "Industrial Welding & Structural Repair in Chickasaw, AL",
+    metaDescription:
+      "Welding, structural steel repair, and fabrication for industrial and waterfront facilities in Chickasaw, AL, on Chickasaw Creek just north of Mobile.",
+    eyebrow: "Chickasaw, Alabama",
+    h1: "Industrial welding and structural repair in Chickasaw, AL",
+    intro:
+      "Chickasaw grew up as a shipbuilding town on Chickasaw Creek, just north of Mobile, and industrial waterfront still lines that edge of the city. Facilities here deal with steel that's exposed to water, salt air, and decades of use, which puts welding and structural repair at the top of the list.",
+    summary: "A historic shipbuilding town on Chickasaw Creek, just north of Mobile.",
+    image: "welding",
+    imageAlt: "Welder working on industrial steel",
+    sections: [
+      {
+        heading: "Steel that's been working a long time",
+        body: [
+          "Older industrial sites and waterfront structures carry corrosion, fatigue cracks, and years of patch repairs. Fixing them properly starts with understanding what's actually holding the load.",
+          "Our welders and fabricators repair and reinforce structural steel, platforms, and supports, and fabricate replacement members when a repair alone won't restore the structure's integrity.",
+        ],
+      },
+      {
+        heading: "Our work around Chickasaw",
+        body: [],
+        items: [
+          { title: "Structural repair and reinforcement", text: "Restoring beams, columns, platforms, and supports to extend their service life." },
+          { title: "Structural welding", text: "Welding repairs on structural steel built for demanding industrial conditions." },
+          { title: "Replacement fabrication", text: "Fabricated members and assemblies for sections that are beyond repair." },
+          { title: "Inspection-ready work", text: "Clear scope and documentation, with work verified and inspected before we call it done." },
+        ],
+      },
+    ],
+    faqs: [
+      { q: "Do you repair corroded structural steel?", a: "Yes. We repair and reinforce structural steel, platforms, and plant infrastructure, and fabricate replacement members where repair isn't enough." },
+      { q: "Do you document repairs?", a: "Yes. Every job gets a clear scope, schedule, and documentation, and the work is verified and inspected before we call it done." },
+      { q: "Is Chickasaw in your service area?", a: "Yes. Chickasaw is part of our core Mobile-area service area." },
+      QUOTE_FAQ,
+    ],
+  },
+  {
+    slug: "bayou-la-batre-al",
+    city: "Bayou La Batre",
+    stateName: "Alabama",
+    shortName: "Bayou La Batre, AL",
+    nearby: ["mobile-al", "pascagoula-ms"],
+    metaTitle: "Industrial Welding, Machining & Repair in Bayou La Batre, AL",
+    metaDescription:
+      "Welding, fabrication, machining, and R Stamp boiler and pressure vessel repair for shipyards, processing plants, and waterfront industry in Bayou La Batre, AL on the Mississippi Sound.",
+    eyebrow: "Bayou La Batre, Alabama",
+    h1: "Industrial welding, machining and repair in Bayou La Batre, AL",
+    intro:
+      "Bayou La Batre, on the Mississippi Sound at the southern tip of Mobile County, is known for shipbuilding and seafood processing. Its working waterfront runs on welded steel, machined parts, and processing equipment, all in one of the harshest coastal environments on the Gulf.",
+    summary: "South Mobile County's shipbuilding and seafood processing waterfront.",
+    image: "welding",
+    imageAlt: "Welder performing structural welding work",
+    sections: [
+      {
+        heading: "Built for the waterfront",
+        body: [
+          "Salt air and constant moisture shorten the life of steel structures and equipment. Shipyards and processing plants also depend on boilers, pressure vessels, and machinery that can't be down for long during busy seasons.",
+          "We bring welding and fabrication, machining, and R Stamp pressure equipment repairs to Bayou La Batre facilities from our base in the Mobile area.",
+        ],
+      },
+      {
+        heading: "Services for Bayou La Batre facilities",
+        body: [],
+        items: [
+          { title: "Welding and fabrication", text: "Structural and equipment welding and custom metal fabrication for shipyards and waterfront facilities." },
+          { title: "Boiler and pressure vessel repair", text: "Metallic repairs and alterations to boilers and pressure vessels under our National Board \"R\" Stamp." },
+          { title: "Machined parts", text: "Replacement shafts, components, and custom parts machined in-house to tolerance." },
+          { title: "Processing equipment repair", text: "Repair and maintenance of production equipment and mechanical systems in processing plants." },
+        ],
+      },
+    ],
+    faqs: [
+      { q: "Can you repair boilers at a processing plant?", a: "Yes. We are National Board \"R\" Stamp certified for metallic repairs and alterations to boilers and pressure vessels." },
+      { q: "Do you do custom fabrication for shipyards and waterfront facilities?", a: "Yes. We do structural and equipment welding and custom metal fabrication built to withstand demanding industrial environments." },
+      { q: "Is Bayou La Batre in your service area?", a: "Yes. Bayou La Batre is part of our Mobile County service area, served from our office in the Mobile area." },
       QUOTE_FAQ,
     ],
   },
@@ -404,34 +662,40 @@ export const serviceAreas: ServiceArea[] = [
     city: "Pascagoula",
     stateName: "Mississippi",
     shortName: "Pascagoula, MS",
-    metaTitle: "Industrial Contractor Serving Pascagoula, MS | Machining & Welding",
+    nearby: ["bayou-la-batre-al", "mobile-al"],
+    metaTitle: "Industrial Contractor Serving Pascagoula, MS | Turnarounds & Welding",
     metaDescription:
-      "Industrial maintenance, machining, welding and fabrication, and 24/7 emergency repair for plants in Pascagoula and the Mississippi Gulf Coast, from a Mobile-area contractor.",
+      "Shutdown and turnaround crews, process piping welding, and R Stamp pressure vessel repairs for refining, shipbuilding, and industrial plants in Pascagoula, MS.",
     eyebrow: "Pascagoula, Mississippi",
     h1: "Industrial contractor serving Pascagoula, MS",
     intro:
-      "Pascagoula is part of our Gulf Coast service area. From our base in the Mobile area, Precision Construction Repair brings industrial maintenance, machining, welding and fabrication, and 24/7 emergency response to plants on the Mississippi Gulf Coast.",
-    summary: "Mississippi Gulf Coast plants, served from our Mobile-area base.",
+      "Pascagoula, in Jackson County on the Mississippi Gulf Coast, is one of the region's major centers of shipbuilding and refining. It's the western edge of our service area, and we bring the skills those plants lean on most, from turnaround crews to pressure vessel repairs, from our base in the Mobile area.",
+    summary: "Shipbuilding and refining on the Mississippi Gulf Coast, served from our Mobile-area base.",
     image: "welding",
     imageAlt: "Welder performing structural repair at an industrial site",
     sections: [
       {
-        heading: "Services for Pascagoula-area plants",
+        heading: "Turnarounds and pressure equipment",
         body: [
-          "We bring the same crews, safety protocols, and capabilities to Mississippi Gulf Coast facilities that we bring to every job.",
+          "Large process plants plan their maintenance around outages, and every day of a turnaround counts. Crews have to arrive with clear scopes, follow strict safety protocols, and finish inside the window.",
+          "We provide dedicated, direct-hire crews for planned shutdowns and turnarounds, and our National Board \"R\" Stamp covers metallic repairs and alterations to boilers and pressure vessels.",
         ],
+      },
+      {
+        heading: "What we bring to Pascagoula-area plants",
+        body: [],
         items: [
-          { title: "Industrial maintenance", text: "Routine and planned maintenance for production equipment, mechanical systems, and plant infrastructure." },
-          { title: "Machining", text: "In-house and on-site machining of custom parts, replacement components, and rebuilds." },
-          { title: "Welding & fabrication", text: "Structural, process piping, and equipment welding, plus R Stamp boiler and pressure vessel repairs." },
-          { title: "Emergency & turnarounds", text: "24/7 emergency response and dedicated crews for shutdowns and turnarounds." },
+          { title: "Turnaround crews", text: "Dedicated crews with defined scopes, schedules, and documentation for planned outages." },
+          { title: "Process piping welding", text: "Welding on process piping systems in industrial plant environments." },
+          { title: "R Stamp repairs", text: "Metallic repairs and alterations to boilers and pressure vessels." },
+          { title: "Emergency response", text: "24/7 response for critical equipment and structural failures." },
         ],
       },
     ],
     faqs: [
       { q: "Do you work in Mississippi?", a: "Yes. Pascagoula is part of our Gulf Coast service area, served from our base in the Mobile area." },
-      EMERGENCY_FAQ,
-      CREWS_FAQ,
+      { q: "Can you staff a turnaround?", a: "Yes. We provide dedicated crews for planned shutdowns and turnarounds, with clear scopes and schedules to keep the outage on track." },
+      { q: "What safety training do your crews have?", a: "Crews receive a site-specific safety orientation, follow PPE and lockout/tagout protocols, complete pre-task hazard assessments, and are trained to OSHA general industry standards, including confined space entry." },
       QUOTE_FAQ,
     ],
   },

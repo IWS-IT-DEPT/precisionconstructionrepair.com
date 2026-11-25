@@ -84,6 +84,7 @@ const LOCAL_BUSINESS_JSON_LD = {
     "Saraland, AL",
     "Chickasaw, AL",
     "Creola, AL",
+    "Axis, AL",
     "Calvert, AL",
     "Jackson, AL",
     "Bayou La Batre, AL",

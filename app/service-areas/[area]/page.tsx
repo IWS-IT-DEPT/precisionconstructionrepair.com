@@ -29,8 +29,8 @@ export default async function ServiceAreaPage(props: PageProps<"/service-areas/[
   if (!area) notFound();
 
   const related = [
-    ...serviceAreas
-      .filter((a) => a.slug !== area.slug)
+    ...area.nearby
+      .map((slug) => getArea(slug)!)
       .map((a) => ({ href: `/service-areas/${a.slug}`, label: `Serving ${a.shortName}`, description: a.summary })),
     ...servicePages.map((p) => ({ href: `/services/${p.slug}`, label: p.eyebrow, description: p.summary })),
   ];
