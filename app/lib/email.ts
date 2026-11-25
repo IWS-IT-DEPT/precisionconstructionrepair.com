@@ -22,3 +22,27 @@ export function fieldsToHtml(fields: Array<[label: string, value: string]>) {
     )
     .join("\n");
 }
+
+type SendOptions = Parameters<typeof resend.emails.send>[0];
+
+/**
+ * Sends a form notification and logs the outcome to Vercel runtime logs.
+ * Logs only the form name and Resend result, never the submitted contents.
+ */
+export async function sendFormEmail(form: string, options: SendOptions) {
+  try {
+    const { data, error } = await resend.emails.send(options);
+    if (error) {
+      console.error(`[form:${form}] Resend send failed`, {
+        name: error.name,
+        message: error.message,
+      });
+      return false;
+    }
+    console.info(`[form:${form}] Resend send ok`, { id: data?.id });
+    return true;
+  } catch (err) {
+    console.error(`[form:${form}] Resend send threw`, err);
+    return false;
+  }
+}

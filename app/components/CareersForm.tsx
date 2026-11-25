@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import { trackFormEvent } from "@/app/lib/track";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
@@ -35,9 +36,11 @@ export default function CareersForm() {
 
       if (!res.ok) throw new Error("Request failed");
       setStatus("success");
+      trackFormEvent("job_application", "careers");
       form.reset();
     } catch {
       setStatus("error");
+      trackFormEvent("form_error", "careers");
     }
   }
 

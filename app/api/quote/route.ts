@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { EMAIL_RE, SEND_DOMAIN, fieldsToHtml, resend } from "@/app/lib/email";
+import { EMAIL_RE, SEND_DOMAIN, fieldsToHtml, sendFormEmail } from "@/app/lib/email";
 
 const TO_ADDRESS = "quotes@precisionconstructionrepair.com";
 
@@ -18,6 +18,7 @@ export async function POST(request: Request) {
     !body.description.trim() ||
     !EMAIL_RE.test(body.email.trim())
   ) {
+    console.warn("[form:quote] Rejected submission: missing or invalid fields");
     return NextResponse.json({ ok: false, error: "Missing or invalid fields." }, { status: 400 });
   }
 
@@ -29,7 +30,7 @@ export async function POST(request: Request) {
   const timeline = typeof body.timeline === "string" ? body.timeline.trim() : "";
   const description = body.description.trim();
 
-  const { error } = await resend.emails.send({
+  const sent = await sendFormEmail("quote", {
     from: `Precision Construction Repair Website <contact@${SEND_DOMAIN}>`,
     to: [TO_ADDRESS],
     replyTo: email,
@@ -45,7 +46,7 @@ export async function POST(request: Request) {
     ]),
   });
 
-  if (error) {
+  if (!sent) {
     return NextResponse.json({ ok: false, error: "Failed to send request." }, { status: 502 });
   }
 
