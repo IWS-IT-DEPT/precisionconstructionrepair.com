@@ -6,6 +6,7 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 import SiteHeader from "./components/SiteHeader";
 import SiteFooter from "./components/SiteFooter";
+import ContactClickTracker from "./components/ContactClickTracker";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -66,6 +67,7 @@ export const metadata: Metadata = {
 const LOCAL_BUSINESS_JSON_LD = {
   "@context": "https://schema.org",
   "@type": "GeneralContractor",
+  "@id": `${SITE_URL}/#organization`,
   name: "Precision Construction Repair",
   url: SITE_URL,
   telephone: "+12513957447",
@@ -111,6 +113,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <SiteHeader />
         <main className="flex-1">{children}</main>
         <SiteFooter />
+        <ContactClickTracker />
         <Analytics />
         <SpeedInsights />
       </body>

@@ -17,3 +17,12 @@ export function trackFormEvent(
     // Analytics must never break the form.
   }
 }
+
+/** GA4 event for phone/email link clicks; GA4 adds the page path automatically. */
+export function trackContactClick(event: "phone_click" | "email_click", section: string) {
+  try {
+    sendGAEvent("event", event, { link_section: section });
+  } catch {
+    // Analytics must never break navigation.
+  }
+}
